@@ -8,6 +8,7 @@
   <form [formGroup]="myForm" (submit)="onSubmit()">
     <ion-list>
       <ion-item>
+        <ion-icon name="storefront-outline" slot="start"></ion-icon>
         <ion-label position="floating">Email</ion-label>
         <ion-input type="email" formControlName="email" name="email" required></ion-input>
       </ion-item>
