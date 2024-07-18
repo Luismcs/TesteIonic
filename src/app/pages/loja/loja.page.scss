@@ -54,11 +54,13 @@ ion-card-header {
 }
 
 ion-card-title {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 ion-card-content {
+  background: #2b2a2a;
   color: #cccccc;
+  padding: 10px;
 }
 
 ion-fab-button {
