@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ game?.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="game">
+    <img [src]="game.thumbnail" />
+    <ion-card-header>
+      <ion-card-title>{{ game.title }}</ion-card-title>
+      <ion-card-subtitle>{{ game.genre }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ game.short_description }}</p>
+      <p>{{ game.description }}</p>
+      <p><strong>Platform:</strong> {{ game.platform }}</p>
+      <p><strong>Publisher:</strong> {{ game.publisher }}</p>
+      <p><strong>Developer:</strong> {{ game.developer }}</p>
+      <p><strong>Release Date:</strong> {{ game.release_date }}</p>
+      <p><strong>Status:</strong> {{ game.status }}</p>
+      <ion-button href="{{ game.game_url }}" target="_blank">Play Now</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
