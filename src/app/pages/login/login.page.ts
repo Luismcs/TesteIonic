@@ -4,14 +4,37 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel, IonButton, IonInput, IonIcon } from "@ionic/angular/standalone";
+import {
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonList,
+  IonItem,
+  IonLabel,
+  IonButton,
+  IonInput,
+  IonIcon,
+} from '@ionic/angular/standalone';
 
 @Component({
   standalone: true,
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
-  imports: [IonIcon, IonInput, IonButton, IonLabel, IonItem, IonList, IonContent, IonTitle, IonToolbar, IonHeader, ReactiveFormsModule],
+  imports: [
+    IonIcon,
+    IonInput,
+    IonButton,
+    IonLabel,
+    IonItem,
+    IonList,
+    IonContent,
+    IonTitle,
+    IonToolbar,
+    IonHeader,
+    ReactiveFormsModule,
+  ],
 })
 export class LoginPage implements OnInit {
   myForm: FormGroup;
@@ -45,7 +68,7 @@ export class LoginPage implements OnInit {
       await loading.dismiss();
       if (user) {
         localStorage.setItem('login', 'true');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/loja']);
       } else {
         const alert = await this.alertController.create({
           header: 'Login failed',
