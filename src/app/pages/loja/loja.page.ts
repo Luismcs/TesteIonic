@@ -7,6 +7,7 @@ import { GameListService } from 'src/app/services/game-list.service';
 import { Game } from 'src/app/models/game';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loja',
@@ -27,7 +28,7 @@ export class LojaPage implements OnInit {
   searchTerm: string = '';
   private searchTerms = new Subject<string>();
 
-  constructor(private gamesListService: GameListService) { }
+  constructor(private gamesListService: GameListService, private router: Router) { }
 
   ngOnInit() {
     this.gamesListService.getGames().subscribe({
@@ -103,5 +104,9 @@ export class LojaPage implements OnInit {
 
   scrollToTop() {
     this.content?.scrollToTop(500);
+  }
+
+  goToGameDetails(gameId: number) {
+    this.router.navigate(['/detalhes-jogo', gameId.toString()]);
   }
 }

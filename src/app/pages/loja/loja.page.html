@@ -27,7 +27,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-sm="6" *ngFor="let item of games">
-        <ion-card color="dark">
+        <ion-card color="dark" (click)="goToGameDetails(item.id)">
           <img [src]="item.thumbnail" />
           <ion-card-header>
             <ion-card-title>{{item.title}}</ion-card-title>
