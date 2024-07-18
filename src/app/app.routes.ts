@@ -12,9 +12,15 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'loja',
+    canActivate: [loginGuard],
+    loadComponent: () => import('./pages/loja/loja.page').then( m => m.LojaPage)
+  },
+  {
     path: 'home',
     canActivate: [loginGuard],
     loadComponent: () => import('./home/home.page').then(m => m.HomePage),
   },
+ 
   
 ];
