@@ -6,7 +6,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
-    <ion-refresher-content 
+    <ion-refresher-content
       pullingIcon="chevron-down-circle-outline"
       pullingText="Pull to refresh"
       refreshingSpinner="circles"
@@ -14,26 +14,36 @@
     ></ion-refresher-content>
   </ion-refresher>
 
-  <ion-buttons>
-    <ion-button (click)="sortGamesByTitle()">Ordenar por Título</ion-button>
-    <ion-button (click)="sortGamesByReleaseDate()">Ordenar por Data de Lançamento</ion-button>
-  </ion-buttons>
+  <div class="header-buttons">
+    <ion-button (click)="sortGamesByTitle()" expand="full" fill="outline"
+      >Ordenar por Título</ion-button
+    >
+    <ion-button (click)="sortGamesByReleaseDate()" expand="full" fill="outline"
+      >Ordenar por Data de Lançamento</ion-button
+    >
+  </div>
 
-  <ion-item>
-    <ion-label>Pesquisar por Título</ion-label>
-    <ion-input [(ngModel)]="searchTerm" (ngModelChange)="searchGamesByTitle($event)" placeholder="Digite o título do jogo"></ion-input>
-  </ion-item>
+  <ion-card class="search-card">
+    <ion-item>
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+      <ion-input
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="searchGamesByTitle($event)"
+        placeholder="Digite o título do jogo"
+      ></ion-input>
+    </ion-item>
+  </ion-card>
 
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-sm="6" *ngFor="let item of games">
-        <ion-card color="dark">
+        <ion-card>
           <img [src]="item.thumbnail" />
           <ion-card-header>
             <ion-card-title>{{item.title}}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            {{item.platform}} <br>
+            {{item.platform}} <br />
             Data de Lançamento: {{item.release_date}}
           </ion-card-content>
         </ion-card>
@@ -48,6 +58,9 @@
   </ion-fab>
 
   <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
-    <ion-infinite-scroll-content loadingText="Please wait..." loadingSpinner="crescent"></ion-infinite-scroll-content>
+    <ion-infinite-scroll-content
+      loadingText="Please wait..."
+      loadingSpinner="crescent"
+    ></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 </ion-content>
