@@ -17,7 +17,8 @@ export class LoginService {
     return this.http.get<User[]>(this.apiUrl).pipe(
       map(users => {
         const user = users.find(u => u.email === email && u.password === password);
-        localStorage.setItem('login', 'true')
+        localStorage.setItem('login', 'true');
+        localStorage.setItem('user_id', JSON.stringify(user?.id));
         return user || null;
       })
     );
