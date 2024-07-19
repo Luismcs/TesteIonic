@@ -22,7 +22,6 @@ export class EditProfilePage implements OnInit {
     this.userForm = this.fb.group({
       name: [''],
       email: [''],
-      password: [''],
       avatar: ['']
     });
   }
@@ -41,7 +40,6 @@ export class EditProfilePage implements OnInit {
             this.userForm.setValue({
               name: this.user.name,
               email: this.user.email,
-              password: '',
               avatar: this.user.avatar
             });
           } else {
