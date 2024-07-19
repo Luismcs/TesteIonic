@@ -87,7 +87,6 @@ export class LojaPage implements OnInit {
 
     console.log('User ID from localStorage:', userId);
     if (userId) {
-      // Remover as aspas duplas ao redor do userId, se existirem
       userId = userId.replace(/"/g, '');
       console.log('Formatted User ID:', userId);
       this.userService.getUserById(userId).subscribe((response) => {

@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
@@ -11,10 +17,9 @@ import { RegisterService } from 'src/app/services/register.service';
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule],
 })
 export class RegisterPage implements OnInit {
-
   registerForm: FormGroup;
 
   constructor(
@@ -32,8 +37,7 @@ export class RegisterPage implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async handleFormSubmit(): Promise<void> {
     if (this.registerForm.valid) {
@@ -52,11 +56,12 @@ export class RegisterPage implements OnInit {
           await loading.dismiss();
           const alert = await this.alertController.create({
             header: 'Erro',
-            message: 'Ocorreu um erro ao registrar. Por favor, tente novamente.',
-            buttons: ['OK']
+            message:
+              'Ocorreu um erro ao registrar. Por favor, tente novamente.',
+            buttons: ['OK'],
           });
           await alert.present();
-        }
+        },
       });
     }
   }

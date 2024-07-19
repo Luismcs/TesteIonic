@@ -12,19 +12,24 @@ import { LoginService } from 'src/app/services/login.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonicModule, HttpClientModule, RouterLink],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    HttpClientModule,
+    RouterLink,
+  ],
 })
 export class ProfileComponent implements OnInit {
   user: any;
   private userService = inject(UserService);
 
-  constructor(public loginService: LoginService) { }
+  constructor(public loginService: LoginService) {}
 
   ngOnInit() {
     let userId = localStorage.getItem('user_id');
     console.log('User ID from localStorage:', userId);
     if (userId) {
-      // Remover as aspas duplas ao redor do userId, se existirem
       userId = userId.replace(/"/g, '');
       console.log('Formatted User ID:', userId);
       this.userService.getUserById(userId).subscribe(
@@ -47,6 +52,6 @@ export class ProfileComponent implements OnInit {
 
   logout(): void {
     this.loginService.logout();
-    window.location.reload();  
+    window.location.reload();
   }
 }
