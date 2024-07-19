@@ -1,15 +1,4 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>loja</ion-title>
-    <ion-item slot="end">
-      <ion-avatar>
-        <a [routerLink]="'/profile'">
-          <img [src]="avatar" />
-        </a>
-      </ion-avatar>
-    </ion-item>
-  </ion-toolbar>
-</ion-header>
+<app-navbar></app-navbar>
 
 <ion-content [fullscreen]="true">
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">

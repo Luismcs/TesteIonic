@@ -89,16 +89,6 @@
       ]
     },
     {
-      "id": "b2b3",
-      "userId": "\"aa03\"",
-      "games": [
-        {
-          "gameId": "582",
-          "createDate": "2024-07-19T10:45:28.231Z"
-        }
-      ]
-    },
-    {
       "id": "b6cc",
       "userId": "\"ab04\"",
       "games": [
@@ -153,16 +143,6 @@
   ],
   "usersListPlayed": [
     {
-      "id": "9999",
-      "userId": "\"aa03\"",
-      "games": [
-        {
-          "gameId": "582",
-          "createDate": "2024-07-19T10:45:31.570Z"
-        }
-      ]
-    },
-    {
       "id": "d469",
       "userId": "\"ab04\"",
       "games": [
@@ -175,22 +155,22 @@
   ],
   "usersListCompleted": [
     {
-      "id": "b9a3",
-      "userId": "\"aa03\"",
-      "games": [
-        {
-          "gameId": "582",
-          "createDate": "2024-07-19T10:45:33.644Z"
-        }
-      ]
-    },
-    {
       "id": "e476",
       "userId": "\"ab04\"",
       "games": [
         {
           "gameId": "516",
           "createDate": "2024-07-19T10:49:15.472Z"
+        }
+      ]
+    },
+    {
+      "id": "ee42",
+      "userId": "\"aa03\"",
+      "games": [
+        {
+          "gameId": "582",
+          "createDate": "2024-07-19T17:14:06.707Z"
         }
       ]
     }

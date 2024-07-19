@@ -30,6 +30,8 @@ import { UsersListPlayedService } from 'src/app/services/users-list-played.servi
 import { GameArray } from 'src/app/models/game-play-later';
 import { GameListService } from 'src/app/services/game-list.service';
 import { Game } from 'src/app/models/game';
+import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
+import { CompletedComponent } from "../completed/completed.component";
 
 @Component({
   selector: 'app-played',
@@ -62,7 +64,9 @@ import { Game } from 'src/app/models/game';
     IonIcon,
     IonInfiniteScroll,
     IonInfiniteScrollContent,
-  ],
+    NavbarComponent,
+    CompletedComponent
+],
   providers: [UsersListPlayedService, GameListService],
 })
 export class PlayedComponent implements OnInit {
