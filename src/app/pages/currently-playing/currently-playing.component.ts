@@ -150,10 +150,4 @@ export class CurrentlyPlayingComponent implements OnInit {
   scrollToTop() {
     document.querySelector('ion-content')?.scrollToTop(500);
   }
-
-  loadMoreGames(event: any) {
-    setTimeout(() => {
-      event.target.complete();
-    }, 2000);
-  }
 }

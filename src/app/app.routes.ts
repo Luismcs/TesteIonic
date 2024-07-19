@@ -46,4 +46,18 @@ export const routes: Routes = [
       ),
     canActivate: [loginGuard],
   },
+  {
+    path: 'played',
+    loadComponent: () =>
+      import('./pages/played/played.component').then((m) => m.PlayedComponent),
+    canActivate: [loginGuard],
+  },
+  {
+    path: 'completed',
+    loadComponent: () =>
+      import('./pages/completed/completed.component').then(
+        (m) => m.CompletedComponent
+      ),
+    canActivate: [loginGuard],
+  },
 ];
