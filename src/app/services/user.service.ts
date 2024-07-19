@@ -30,16 +30,11 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/users`, user);
   }
 
-  
-
   updateUser(userId: string, user: any): Observable<any> {
     return this.getUserById(userId).pipe(
       switchMap((existingUser) => {
         if (existingUser) {
-          return this.http.put(
-            `${this.baseUrl}/users/${existingUser.id}`,
-            user
-          );
+          return this.http.put(`${this.baseUrl}/users/${existingUser.id}`, user);
         } else {
           return new Observable<any>((observer) => {
             observer.next(null);
