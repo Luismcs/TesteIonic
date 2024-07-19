@@ -1,15 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="form-login-wrapper">
-    <form class="form-login-container" [formGroup]="myForm" (submit)="onSubmit()">
+    <form class="form-login-container" [formGroup]="registerForm" (submit)="handleFormSubmit()">
       <ion-list>
         <ion-item>
-          <ion-icon name="storefront-outline" slot="start"></ion-icon>
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+          <ion-label position="floating">Name</ion-label>
+          <ion-input type="text" formControlName="name" name="name" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="image-outline" slot="start"></ion-icon>
+          <ion-label position="floating">Avatar URL</ion-label>
+          <ion-input type="text" formControlName="avatar" name="avatar"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
           <ion-label position="floating">Email</ion-label>
           <ion-input type="email" formControlName="email" name="email" required></ion-input>
         </ion-item>
@@ -20,11 +30,8 @@
         </ion-item>
       </ion-list>
       <ion-button expand="full" type="submit" class="login-button">
-        Login
+        Register
       </ion-button>
     </form>
-    <ion-button expand="full" type="button" [routerLink]="'/register'">
-      Register
-    </ion-button>
   </div>
 </ion-content>
