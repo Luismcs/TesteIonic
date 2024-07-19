@@ -50,5 +50,7 @@ export class GameListService {
   getGameDetails(id: string): Observable<GameDetails[]> {
     return this.http.get<GameDetails[]>(`http://localhost:3000/gameDetails?id=${id}`);
   }
+
+  
    
 }
