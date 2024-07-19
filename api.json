@@ -62,6 +62,13 @@
       "avatar": "",
       "email": "atoa@atoa.com",
       "password": "asdasd"
+    },
+    {
+      "id": "8c84",
+      "name": "Luis",
+      "avatar": "https://a.espncdn.com/i/headshots/nba/players/full/1966.png",
+      "email": "luis@luis.com",
+      "password": "123456"
     }
   ],
   "usersListPlayLater": [

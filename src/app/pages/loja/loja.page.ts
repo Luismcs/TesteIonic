@@ -16,8 +16,14 @@ import { UserService } from 'src/app/services/user.service';
   selector: 'app-loja',
   templateUrl: './loja.page.html',
   styleUrls: ['./loja.page.scss'],
-  imports: [CommonModule, FormsModule, IonicModule, HttpClientModule, RouterLink],
-  providers: [GameListService]
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    HttpClientModule,
+    RouterLink,
+  ],
+  providers: [GameListService],
 })
 export class LojaPage implements OnInit {
   @ViewChild(IonContent) content?: IonContent;
@@ -25,7 +31,7 @@ export class LojaPage implements OnInit {
   games: Array<Game> = [];
   page: number = 1;
   maxPages: number = 0;
-  sortBy: string = 'title'; 
+  sortBy: string = 'title';
   order: string = 'asc';
   searchTerm: string = '';
   searchGenre: string = '';
@@ -34,44 +40,52 @@ export class LojaPage implements OnInit {
   avatarBool: boolean = false;
   firstLetter: string = '';
 
-  private userService = inject(UserService)
+  private userService = inject(UserService);
   private searchTerms = new Subject<string>();
   private searchGenreTerms = new Subject<string>();
 
-  constructor(private gamesListService: GameListService, private router: Router, public loginService: LoginService) { }
+  constructor(
+    private gamesListService: GameListService,
+    private router: Router,
+    public loginService: LoginService
+  ) {}
 
   ngOnInit() {
     this.gamesListService.getGames().subscribe({
       next: (items: Array<Game>) => {
         console.log(items);
-      }      
+      },
     });
 
     this.handleRefresh();
 
-    this.searchTerms.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap(term => this.gamesListService.searchGamesByTitle(term))
-    ).subscribe({
-      next: (items: Array<Game>) => {
-        this.games = items;
-      }
-    });
+    this.searchTerms
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        switchMap((term) => this.gamesListService.searchGamesByTitle(term))
+      )
+      .subscribe({
+        next: (items: Array<Game>) => {
+          this.games = items;
+        },
+      });
 
-    this.searchGenreTerms.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      switchMap(term => this.gamesListService.searchGamesByGenre(term))
-    ).subscribe({
-      next: (items: Array<Game>) => {
-        this.games = items;
-      }
-    });
+    this.searchGenreTerms
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        switchMap((term) => this.gamesListService.searchGamesByGenre(term))
+      )
+      .subscribe({
+        next: (items: Array<Game>) => {
+          this.games = items;
+        },
+      });
 
     let userId = localStorage.getItem('user_id');
 
-  console.log('User ID from localStorage:', userId);
+    console.log('User ID from localStorage:', userId);
   if (userId) {
     // Remover as aspas duplas ao redor do userId, se existirem
     userId = userId.replace(/"/g, '');
@@ -98,8 +112,8 @@ export class LojaPage implements OnInit {
     }
   }
 
-  onClickProfile(){
-    this.router.navigate(['profile'])
+  onClickProfile() {
+    this.router.navigate(['profile']);
   }
 
   loadGames() {
@@ -107,7 +121,7 @@ export class LojaPage implements OnInit {
       next: (items: Array<Game>) => {
         this.games = items;
         console.log(items);
-      }
+      },
     });
   }
 
@@ -141,7 +155,7 @@ export class LojaPage implements OnInit {
       next: (games: any) => {
         this.games.push(...games.data);
         event.target.complete();
-      }
+      },
     });
   }
 
@@ -154,7 +168,7 @@ export class LojaPage implements OnInit {
         if (event) {
           event.target.complete();
         }
-      }
+      },
     });
   }
 

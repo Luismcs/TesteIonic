@@ -6,32 +6,55 @@
 
 <ion-content>
   <div class="form-login-wrapper">
-    <form class="form-login-container" [formGroup]="registerForm" (submit)="handleFormSubmit()">
+    <form
+      class="form-login-container"
+      [formGroup]="registerForm"
+      (submit)="handleFormSubmit()"
+    >
       <ion-list>
         <ion-item>
           <ion-icon name="person-outline" slot="start"></ion-icon>
           <ion-label position="floating">Name</ion-label>
-          <ion-input type="text" formControlName="name" name="name" required></ion-input>
+          <ion-input
+            type="text"
+            formControlName="name"
+            name="name"
+            required
+          ></ion-input>
         </ion-item>
         <ion-item>
           <ion-icon name="image-outline" slot="start"></ion-icon>
           <ion-label position="floating">Avatar URL</ion-label>
-          <ion-input type="text" formControlName="avatar" name="avatar"></ion-input>
+          <ion-input
+            type="text"
+            formControlName="avatar"
+            name="avatar"
+          ></ion-input>
         </ion-item>
         <ion-item>
           <ion-icon name="mail-outline" slot="start"></ion-icon>
           <ion-label position="floating">Email</ion-label>
-          <ion-input type="email" formControlName="email" name="email" required></ion-input>
+          <ion-input
+            type="email"
+            formControlName="email"
+            name="email"
+            required
+          ></ion-input>
         </ion-item>
         <ion-item>
           <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
           <ion-label position="floating">Password</ion-label>
-          <ion-input type="password" formControlName="password" name="password" required></ion-input>
+          <ion-input
+            type="password"
+            formControlName="password"
+            name="password"
+            required
+          ></ion-input>
         </ion-item>
       </ion-list>
-      <ion-button expand="full" type="submit" class="login-button">
-        Register
-      </ion-button>
+      <ion-button expand="full" type="submit" class="login-button"
+        >Register</ion-button
+      >
     </form>
   </div>
 </ion-content>
