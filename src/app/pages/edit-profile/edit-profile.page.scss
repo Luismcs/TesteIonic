@@ -4,7 +4,7 @@ ion-content {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 10px; /* Adiciona padding para evitar que o conteúdo toque nas bordas */
+  padding: 10px;
 }
 
 form {
@@ -52,8 +52,8 @@ ion-button {
 }
 
 .avatar-preview img {
-  width: 200px; /* Aumenta o tamanho da imagem do avatar */
-  height: 200px; /* Aumenta o tamanho da imagem do avatar */
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   border: 2px solid #ffffff;
 }

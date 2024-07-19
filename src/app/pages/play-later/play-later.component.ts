@@ -63,7 +63,7 @@ import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
     IonIcon,
     IonInfiniteScroll,
     IonInfiniteScrollContent,
-    NavbarComponent
+    NavbarComponent,
   ],
   providers: [UsersListPlayLaterService, GameListService],
 })
@@ -141,7 +141,6 @@ export class PlayLaterComponent implements OnInit {
 
   handleRefresh(event: any) {
     setTimeout(() => {
-      // Simulate an API call to refresh the data
       this.ngOnInit();
       event.target.complete();
     }, 2000);

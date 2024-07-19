@@ -3,7 +3,7 @@ ion-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Garantir que ocupa 100% da altura da viewport */
+  height: 100vh;
 }
 
 .form-login-wrapper {
@@ -41,7 +41,7 @@ ion-input {
   --placeholder-color: #cccccc;
   --color: #ffffff;
   width: 100%;
-  border-bottom: 1px solid #ffffff; /* Linha branca na área de texto */
+  border-bottom: 1px solid #ffffff;
   padding-bottom: 5px;
 }
 
