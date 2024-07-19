@@ -60,4 +60,16 @@ export const routes: Routes = [
       ),
     canActivate: [loginGuard],
   },
+  {
+    path: 'profile',
+    canActivate: [loginGuard],
+    loadComponent: () =>
+      import('./pages/profile/profile.component').then(
+        (m) => m.ProfileComponent
+      ),
+  },  {
+    path: 'register',
+    loadComponent: () => import('./pages/register/register.page').then( m => m.RegisterPage)
+  },
+
 ];

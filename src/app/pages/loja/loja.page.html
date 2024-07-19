@@ -1,36 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>loja</ion-title>
+    <ion-item slot="end">
+      <ion-avatar>
+        <a [routerLink]="'/profile'">
+          <img [src]="avatar" />
+        </a>
+      </ion-avatar>
+    </ion-item>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
-    <ion-refresher-content
-      pullingIcon="chevron-down-circle-outline"
-      pullingText="Pull to refresh"
-      refreshingSpinner="circles"
-      refreshingText="Refreshing..."
-    ></ion-refresher-content>
+    <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh"
+      refreshingSpinner="circles" refreshingText="Refreshing..."></ion-refresher-content>
   </ion-refresher>
 
   <div class="header-buttons">
-    <ion-button (click)="sortGamesByTitle()" expand="full" fill="outline"
-      >Ordenar por Título</ion-button
-    >
-    <ion-button (click)="sortGamesByReleaseDate()" expand="full" fill="outline"
-      >Ordenar por Data de Lançamento</ion-button
-    >
+    <ion-button (click)="sortGamesByTitle()" expand="full" fill="outline">Ordenar por Título</ion-button>
+    <ion-button (click)="sortGamesByReleaseDate()" expand="full" fill="outline">Ordenar por Data de Lançamento</ion-button>
   </div>
 
   <ion-card class="search-card">
     <ion-item>
       <ion-icon name="search-outline" slot="start"></ion-icon>
-      <ion-input
-        [(ngModel)]="searchTerm"
-        (ngModelChange)="searchGamesByTitle($event)"
-        placeholder="Digite o título do jogo"
-      ></ion-input>
+      <ion-input [(ngModel)]="searchTerm" (ngModelChange)="searchGamesByTitle($event)"
+        placeholder="Digite o título do jogo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="filter-outline" slot="start"></ion-icon>
+      <ion-input [(ngModel)]="searchGenre" (ngModelChange)="searchGamesByGenre($event)"
+        placeholder="Digite o gênero do jogo"></ion-input>
     </ion-item>
   </ion-card>
 
@@ -58,9 +59,6 @@
   </ion-fab>
 
   <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
-    <ion-infinite-scroll-content
-      loadingText="Please wait..."
-      loadingSpinner="crescent"
-    ></ion-infinite-scroll-content>
+    <ion-infinite-scroll-content loadingText="Please wait..." loadingSpinner="crescent"></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 </ion-content>
