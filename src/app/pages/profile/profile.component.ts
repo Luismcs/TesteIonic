@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../../services/user.service';
 import { RouterLink } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
-import { refresh } from 'ionicons/icons';
 
 @Component({
   selector: 'app-profile',
