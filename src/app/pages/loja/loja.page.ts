@@ -28,6 +28,7 @@ export class LojaPage implements OnInit {
   sortBy: string = 'title'; 
   order: string = 'asc';
   searchTerm: string = '';
+  searchGenre: string = '';
   user: any;
   avatar?: string;
   avatarBool: boolean = false;
@@ -35,6 +36,7 @@ export class LojaPage implements OnInit {
 
   private userService = inject(UserService)
   private searchTerms = new Subject<string>();
+  private searchGenreTerms = new Subject<string>();
 
   constructor(private gamesListService: GameListService, private router: Router, public loginService: LoginService) { }
 
@@ -57,7 +59,18 @@ export class LojaPage implements OnInit {
       }
     });
 
+    this.searchGenreTerms.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap(term => this.gamesListService.searchGamesByGenre(term))
+    ).subscribe({
+      next: (items: Array<Game>) => {
+        this.games = items;
+      }
+    });
+
     let userId = localStorage.getItem('user_id');
+
   console.log('User ID from localStorage:', userId);
   if (userId) {
     // Remover as aspas duplas ao redor do userId, se existirem
@@ -76,15 +89,12 @@ export class LojaPage implements OnInit {
           console.log(this.user);
         } else {
           console.error('User not found');
+
         }
-      },
-      (error) => {
-        console.error('Error fetching user:', error);
-      }
-    );
-  } else {
-    console.error('No user_id in localStorage');
-  }
+      );
+    } else {
+      console.error('No user_id in localStorage');
+    }
   }
 
   onClickProfile(){
@@ -114,6 +124,10 @@ export class LojaPage implements OnInit {
 
   searchGamesByTitle(term: string): void {
     this.searchTerms.next(term);
+  }
+
+  searchGamesByGenre(term: string): void {
+    this.searchGenreTerms.next(term);
   }
 
   onIonInfinite(event: any): void {
@@ -151,4 +165,3 @@ export class LojaPage implements OnInit {
     this.router.navigate(['/detalhes-jogo', gameId.toString()]);
   }
 }
-
