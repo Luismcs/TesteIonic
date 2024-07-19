@@ -2,9 +2,18 @@
   <ion-toolbar>
     <ion-title>loja</ion-title>
     <ion-item slot="end">
-      <ion-avatar>
+
+
+      <ion-avatar *ngIf="!avatarBool">
         <a [routerLink]="'/profile'">
           <img [src]="avatar" />
+        </a>
+      </ion-avatar>
+
+
+      <ion-avatar *ngIf="avatarBool" class="avatar-null">
+        <a [routerLink]="'/profile'">
+          {{ firstLetter }}
         </a>
       </ion-avatar>
     </ion-item>

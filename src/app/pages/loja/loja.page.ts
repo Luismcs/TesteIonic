@@ -30,6 +30,8 @@ export class LojaPage implements OnInit {
   searchTerm: string = '';
   user: any;
   avatar?: string;
+  avatarBool: boolean = false;
+  firstLetter: string = '';
 
   private userService = inject(UserService)
   private searchTerms = new Subject<string>();
@@ -67,6 +69,10 @@ export class LojaPage implements OnInit {
         if (response) {
           this.user = response;
           this.avatar = response.avatar;
+          if(this.avatar == ''){
+            this.avatarBool = true
+            this.firstLetter = this.user.name[0]
+          }
           console.log(this.user);
         } else {
           console.error('User not found');
