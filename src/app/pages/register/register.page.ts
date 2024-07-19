@@ -52,7 +52,7 @@ export class RegisterPage implements OnInit {
           await loading.dismiss();
           const alert = await this.alertController.create({
             header: 'Erro',
-            message: 'Ocorreu um erro ao registrar. Por favor, tente novamente.',
+            message: 'Ocorreu um erro ao registrar. Email já está registrado !',
             buttons: ['OK']
           });
           await alert.present();

@@ -12,7 +12,7 @@
 
 
       <ion-avatar *ngIf="avatarBool" class="avatar-null">
-        <a [routerLink]="'/profile'">
+        <a [routerLink]="'/profile'" class="a-avatar-null">
           {{ firstLetter }}
         </a>
       </ion-avatar>
@@ -28,7 +28,8 @@
 
   <div class="header-buttons">
     <ion-button (click)="sortGamesByTitle()" expand="full" fill="outline">Ordenar por Título</ion-button>
-    <ion-button (click)="sortGamesByReleaseDate()" expand="full" fill="outline">Ordenar por Data de Lançamento</ion-button>
+    <ion-button (click)="sortGamesByReleaseDate()" expand="full" fill="outline">Ordenar por Data de
+      Lançamento</ion-button>
   </div>
 
   <ion-card class="search-card">

@@ -86,26 +86,29 @@ export class LojaPage implements OnInit {
     let userId = localStorage.getItem('user_id');
 
     console.log('User ID from localStorage:', userId);
-    if (userId) {
-      // Remover as aspas duplas ao redor do userId, se existirem
-      userId = userId.replace(/"/g, '');
-      console.log('Formatted User ID:', userId);
-      this.userService.getUserById(userId).subscribe((response) => {
+  if (userId) {
+    // Remover as aspas duplas ao redor do userId, se existirem
+    userId = userId.replace(/"/g, '');
+    console.log('Formatted User ID:', userId);
+    this.userService.getUserById(userId).subscribe(
+      (response) => {
         console.log('Response from API:', response);
         if (response) {
+          
           this.user = response;
           this.avatar = response.avatar;
-          if (this.avatar == '') {
-            this.avatarBool = true;
-            this.firstLetter = this.user.name[0];
+          if(this.avatar == ''){
+            this.avatarBool = true
+            this.firstLetter = this.user.name[0]
           }
           console.log(this.user);
         } else {
           console.error('User not found');
+          
         }
       });
-    } else {
-      console.error('No user_id in localStorage');
+      } else {
+        console.error('No user_id in localStorage');
     }
   }
 
