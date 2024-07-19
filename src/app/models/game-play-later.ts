@@ -1,11 +1,10 @@
 export interface GamePlayLater {
-    id:string;
-    userId: string;
-    games: GameArray[];
-
+  id: string;
+  userId: string;
+  games: GameArray[];
 }
 
-interface GameArray {
-    gameId : number;
-    createDate: string,
+export interface GameArray {
+  gameId: number;
+  createDate: string;
 }

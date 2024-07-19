@@ -41,6 +41,13 @@
       "email": "fangs@mail.it",
       "password": "456789",
       "avatar": "https://avatars.steamstatic.com/6eb25c6f96554c7724db04d509067bc2dfcbd006_full.jpg"
+    },
+    {
+      "id": "ab04",
+      "name": "Hugo",
+      "email": "hugo@hugo.com",
+      "password": "123456",
+      "avatar": "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairDreads&accessoriesType=Prescription01&hairColor=Black&facialHairType=Blank&clotheType=ShirtScoopNeck&clotheColor=Blue03&eyeType=Close&eyebrowType=RaisedExcited&mouthType=Serious&skinColor=DarkBrown"
     }
   ],
   "usersListPlayLater": [
@@ -75,12 +82,22 @@
       ]
     },
     {
-      "id": "4d05",
+      "id": "b2b3",
       "userId": "\"aa03\"",
       "games": [
         {
-          "gameId": "540",
-          "createDate": "2024-07-18T22:56:17.235Z"
+          "gameId": "582",
+          "createDate": "2024-07-19T10:45:28.231Z"
+        }
+      ]
+    },
+    {
+      "id": "b6cc",
+      "userId": "\"ab04\"",
+      "games": [
+        {
+          "gameId": "516",
+          "createDate": "2024-07-19T10:49:13.083Z"
         }
       ]
     }
@@ -107,18 +124,70 @@
       ]
     },
     {
-      "id": "925c",
+      "id": "a27e",
       "userId": "\"aa03\"",
       "games": [
         {
           "gameId": "540",
-          "createDate": "2024-07-18T22:56:16.120Z"
+          "createDate": "2024-07-19T10:46:42.161Z"
+        }
+      ]
+    },
+    {
+      "id": "685e",
+      "userId": "\"ab04\"",
+      "games": [
+        {
+          "gameId": "508",
+          "createDate": "2024-07-19T10:49:53.973Z"
         }
       ]
     }
   ],
-  "usersListPlayed": [],
-  "usersListCompleted": [],
+  "usersListPlayed": [
+    {
+      "id": "9999",
+      "userId": "\"aa03\"",
+      "games": [
+        {
+          "gameId": "582",
+          "createDate": "2024-07-19T10:45:31.570Z"
+        }
+      ]
+    },
+    {
+      "id": "d469",
+      "userId": "\"ab04\"",
+      "games": [
+        {
+          "gameId": "516",
+          "createDate": "2024-07-19T10:49:13.922Z"
+        }
+      ]
+    }
+  ],
+  "usersListCompleted": [
+    {
+      "id": "b9a3",
+      "userId": "\"aa03\"",
+      "games": [
+        {
+          "gameId": "582",
+          "createDate": "2024-07-19T10:45:33.644Z"
+        }
+      ]
+    },
+    {
+      "id": "e476",
+      "userId": "\"ab04\"",
+      "games": [
+        {
+          "gameId": "516",
+          "createDate": "2024-07-19T10:49:15.472Z"
+        }
+      ]
+    }
+  ],
   "platform": [
     {
       "id": "4e6c",
