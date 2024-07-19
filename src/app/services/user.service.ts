@@ -30,6 +30,8 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/users`, user);
   }
 
+  
+
   updateUser(userId: string, user: any): Observable<any> {
     return this.getUserById(userId).pipe(
       switchMap((existingUser) => {
