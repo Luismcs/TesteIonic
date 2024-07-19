@@ -31,6 +31,8 @@ export class LojaPage implements OnInit {
   searchGenre: string = '';
   user: any;
   avatar?: string;
+  avatarBool: boolean = false;
+  firstLetter: string = '';
 
   private userService = inject(UserService)
   private searchTerms = new Subject<string>();
@@ -68,23 +70,26 @@ export class LojaPage implements OnInit {
     });
 
     let userId = localStorage.getItem('user_id');
-    console.log('User ID from localStorage:', userId);
-    if (userId) {
-      userId = userId.replace(/"/g, '');
-      console.log('Formatted User ID:', userId);
-      this.userService.getUserById(userId).subscribe(
-        (response) => {
-          console.log('Response from API:', response);
-          if (response) {
-            this.user = response;
-            this.avatar = response.avatar;
-            console.log(this.user);
-          } else {
-            console.error('User not found');
+
+  console.log('User ID from localStorage:', userId);
+  if (userId) {
+    // Remover as aspas duplas ao redor do userId, se existirem
+    userId = userId.replace(/"/g, '');
+    console.log('Formatted User ID:', userId);
+    this.userService.getUserById(userId).subscribe(
+      (response) => {
+        console.log('Response from API:', response);
+        if (response) {
+          this.user = response;
+          this.avatar = response.avatar;
+          if(this.avatar == ''){
+            this.avatarBool = true
+            this.firstLetter = this.user.name[0]
           }
-        },
-        (error) => {
-          console.error('Error fetching user:', error);
+          console.log(this.user);
+        } else {
+          console.error('User not found');
+
         }
       );
     } else {

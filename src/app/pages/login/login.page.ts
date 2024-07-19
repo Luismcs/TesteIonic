@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -34,6 +34,7 @@ import {
     IonToolbar,
     IonHeader,
     ReactiveFormsModule,
+    RouterLink
   ],
 })
 export class LoginPage implements OnInit {
