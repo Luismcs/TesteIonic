@@ -10,20 +10,15 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Router, RouterLink } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
+import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 
 @Component({
   standalone: true,
   selector: 'app-loja',
   templateUrl: './loja.page.html',
   styleUrls: ['./loja.page.scss'],
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    HttpClientModule,
-    RouterLink,
-  ],
-  providers: [GameListService],
+  imports: [CommonModule, FormsModule, IonicModule, HttpClientModule, RouterLink,NavbarComponent],
+  providers: [GameListService]
 })
 export class LojaPage implements OnInit {
   @ViewChild(IonContent) content?: IonContent;
