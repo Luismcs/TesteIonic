@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ game?.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="game">
+    <img [src]="game.thumbnail" />
+    <ion-card-header>
+      <ion-card-title>{{ game.title }}</ion-card-title>
+      <ion-card-subtitle>{{ game.genre }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ game.short_description }}</p>
+      <p>{{ game.description }}</p>
+      <p><strong>Platform:</strong> {{ game.platform }}</p>
+      <p><strong>Publisher:</strong> {{ game.publisher }}</p>
+      <p><strong>Developer:</strong> {{ game.developer }}</p>
+      <p><strong>Release Date:</strong> {{ game.release_date }}</p>
+      <p><strong>Status:</strong> {{ game.status }}</p>
+      <ion-button href="{{ game.game_url }}" target="_blank">Play Now</ion-button>
+
+      <div *ngIf="verPlayLater">
+        <p>Este jogo está na lista de jogar mais tarde</p>
+        <ion-button color="danger" (click)="removeFromPlayLater()">Remover da Lista Jogar Mais Tarde</ion-button>
+      </div>
+
+      <div *ngIf="verCurrentlyPlaying">
+        <p>Este jogo está na lista de atualmente jogando</p>
+        <ion-button color="danger" (click)="removeFromCurrentlyPlaying()">Remover da Lista Atualmente Jogando</ion-button>
+      </div>
+
+      <div *ngIf="!verPlayLater && !verCurrentlyPlaying">
+        <ion-button (click)="addToPlayLater()">Adicionar à Lista Jogar Mais Tarde</ion-button>
+        <ion-button (click)="addToCurrentlyPlaying()">Adicionar à Lista Atualmente Jogando</ion-button>
+      </div>
+
+      <div *ngIf="verPlayed">
+        <p>Este jogo está na lista de jogado</p>
+        <ion-button color="danger" (click)="removeFromPlayed()">Remover da Lista Jogado</ion-button>
+      </div>
+      <div *ngIf="!verPlayed">
+        <ion-button (click)="addToPlayed()">Adicionar à Lista Jogado</ion-button>
+      </div>
+
+      <div *ngIf="verCompleted">
+        <p>Este jogo está na lista de concluído</p>
+        <ion-button color="danger" (click)="removeFromCompleted()">Remover da Lista Concluído</ion-button>
+      </div>
+      <div *ngIf="!verCompleted">
+        <ion-button (click)="addToCompleted()">Adicionar à Lista Concluído</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

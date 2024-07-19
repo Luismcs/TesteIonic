@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Game } from 'src/app/models/game';
+import { GameDetails } from 'src/app/models/game-details';
 
 @Injectable({
   providedIn: 'root'
@@ -44,4 +45,12 @@ export class GameListService {
       )
     );
   }
+
+  /*DETALHES DO JOGO*/
+  getGameDetails(id: string): Observable<GameDetails[]> {
+    return this.http.get<GameDetails[]>(`http://localhost:3000/gameDetails?id=${id}`);
+  }
+
+  
+   
 }
