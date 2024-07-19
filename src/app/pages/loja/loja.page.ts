@@ -28,11 +28,13 @@ export class LojaPage implements OnInit {
   sortBy: string = 'title'; 
   order: string = 'asc';
   searchTerm: string = '';
+  searchGenre: string = '';
   user: any;
   avatar?: string;
 
   private userService = inject(UserService)
   private searchTerms = new Subject<string>();
+  private searchGenreTerms = new Subject<string>();
 
   constructor(private gamesListService: GameListService, private router: Router, public loginService: LoginService) { }
 
@@ -55,30 +57,39 @@ export class LojaPage implements OnInit {
       }
     });
 
-    let userId = localStorage.getItem('user_id');
-  console.log('User ID from localStorage:', userId);
-  if (userId) {
-    // Remover as aspas duplas ao redor do userId, se existirem
-    userId = userId.replace(/"/g, '');
-    console.log('Formatted User ID:', userId);
-    this.userService.getUserById(userId).subscribe(
-      (response) => {
-        console.log('Response from API:', response);
-        if (response) {
-          this.user = response;
-          this.avatar = response.avatar;
-          console.log(this.user);
-        } else {
-          console.error('User not found');
-        }
-      },
-      (error) => {
-        console.error('Error fetching user:', error);
+    this.searchGenreTerms.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap(term => this.gamesListService.searchGamesByGenre(term))
+    ).subscribe({
+      next: (items: Array<Game>) => {
+        this.games = items;
       }
-    );
-  } else {
-    console.error('No user_id in localStorage');
-  }
+    });
+
+    let userId = localStorage.getItem('user_id');
+    console.log('User ID from localStorage:', userId);
+    if (userId) {
+      userId = userId.replace(/"/g, '');
+      console.log('Formatted User ID:', userId);
+      this.userService.getUserById(userId).subscribe(
+        (response) => {
+          console.log('Response from API:', response);
+          if (response) {
+            this.user = response;
+            this.avatar = response.avatar;
+            console.log(this.user);
+          } else {
+            console.error('User not found');
+          }
+        },
+        (error) => {
+          console.error('Error fetching user:', error);
+        }
+      );
+    } else {
+      console.error('No user_id in localStorage');
+    }
   }
 
   onClickProfile(){
@@ -108,6 +119,10 @@ export class LojaPage implements OnInit {
 
   searchGamesByTitle(term: string): void {
     this.searchTerms.next(term);
+  }
+
+  searchGamesByGenre(term: string): void {
+    this.searchGenreTerms.next(term);
   }
 
   onIonInfinite(event: any): void {
@@ -145,4 +160,3 @@ export class LojaPage implements OnInit {
     this.router.navigate(['/detalhes-jogo', gameId.toString()]);
   }
 }
-

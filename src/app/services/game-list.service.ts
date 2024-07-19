@@ -46,6 +46,18 @@ export class GameListService {
     );
   }
 
+  searchGamesByGenre(genre: string): Observable<Array<Game>> {
+    return this.http.get<Array<Game>>(
+      `http://localhost:3000/gamesList`
+    ).pipe(
+      map(games => 
+        games.filter(game => 
+          game.genre.toLowerCase().includes(genre.toLowerCase())
+        )
+      )
+    );
+  }
+
   /*DETALHES DO JOGO*/
   getGameDetails(id: string): Observable<GameDetails[]> {
     return this.http.get<GameDetails[]>(`http://localhost:3000/gameDetails?id=${id}`);
