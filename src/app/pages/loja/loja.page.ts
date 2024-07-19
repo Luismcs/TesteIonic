@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, IonContent } from '@ionic/angular';
@@ -7,14 +7,16 @@ import { GameListService } from 'src/app/services/game-list.service';
 import { Game } from 'src/app/models/game';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
+  standalone: true,
   selector: 'app-loja',
   templateUrl: './loja.page.html',
   styleUrls: ['./loja.page.scss'],
-  standalone: true,
-  imports: [CommonModule, FormsModule, IonicModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, IonicModule, HttpClientModule, RouterLink],
   providers: [GameListService]
 })
 export class LojaPage implements OnInit {
@@ -26,15 +28,19 @@ export class LojaPage implements OnInit {
   sortBy: string = 'title'; 
   order: string = 'asc';
   searchTerm: string = '';
+  user: any;
+  avatar?: string;
+
+  private userService = inject(UserService)
   private searchTerms = new Subject<string>();
 
-  constructor(private gamesListService: GameListService, private router: Router) { }
+  constructor(private gamesListService: GameListService, private router: Router, public loginService: LoginService) { }
 
   ngOnInit() {
     this.gamesListService.getGames().subscribe({
       next: (items: Array<Game>) => {
         console.log(items);
-      }
+      }      
     });
 
     this.handleRefresh();
@@ -48,6 +54,35 @@ export class LojaPage implements OnInit {
         this.games = items;
       }
     });
+
+    let userId = localStorage.getItem('user_id');
+  console.log('User ID from localStorage:', userId);
+  if (userId) {
+    // Remover as aspas duplas ao redor do userId, se existirem
+    userId = userId.replace(/"/g, '');
+    console.log('Formatted User ID:', userId);
+    this.userService.getUserById(userId).subscribe(
+      (response) => {
+        console.log('Response from API:', response);
+        if (response) {
+          this.user = response;
+          this.avatar = response.avatar;
+          console.log(this.user);
+        } else {
+          console.error('User not found');
+        }
+      },
+      (error) => {
+        console.error('Error fetching user:', error);
+      }
+    );
+  } else {
+    console.error('No user_id in localStorage');
+  }
+  }
+
+  onClickProfile(){
+    this.router.navigate(['profile'])
   }
 
   loadGames() {
@@ -110,3 +145,4 @@ export class LojaPage implements OnInit {
     this.router.navigate(['/detalhes-jogo', gameId.toString()]);
   }
 }
+
