@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, throwError, of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,22 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   addUser(user: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/users`, user).pipe(
+    return this.checkEmailExists(user.email).pipe(
+      switchMap(emailExists => {
+        if (emailExists) {
+          return throwError(() => new Error('Email já está registrado'));
+        }
+        return this.http.post(`${this.baseUrl}/users`, user).pipe(
+          catchError(this.handleError)
+        );
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+  private checkEmailExists(email: string): Observable<boolean> {
+    return this.http.get<any[]>(`${this.baseUrl}/users?email=${email}`).pipe(
+      map(users => users.length > 0),
       catchError(this.handleError)
     );
   }
@@ -26,6 +41,6 @@ export class RegisterService {
       // Server-side errors
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    return throwError(errorMessage);
+    return throwError(() => new Error(errorMessage));
   }
 }

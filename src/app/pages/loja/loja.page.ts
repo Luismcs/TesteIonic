@@ -80,6 +80,7 @@ export class LojaPage implements OnInit {
       (response) => {
         console.log('Response from API:', response);
         if (response) {
+          
           this.user = response;
           this.avatar = response.avatar;
           if(this.avatar == ''){
@@ -89,11 +90,11 @@ export class LojaPage implements OnInit {
           console.log(this.user);
         } else {
           console.error('User not found');
-
+          
         }
-      );
-    } else {
-      console.error('No user_id in localStorage');
+      });
+      } else {
+        console.error('No user_id in localStorage');
     }
   }
 
