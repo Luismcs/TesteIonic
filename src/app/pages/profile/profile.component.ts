@@ -16,6 +16,11 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class ProfileComponent implements OnInit {
   user: any;
+  avatar?: string;
+  avatarBool: boolean = false;
+  firstLetter: string = '';
+
+
   private userService = inject(UserService);
 
   constructor(public loginService: LoginService) { }
@@ -29,9 +34,16 @@ export class ProfileComponent implements OnInit {
       console.log('Formatted User ID:', userId);
       this.userService.getUserById(userId).subscribe(
         (response) => {
-          console.log('Response from API:', response);
-          if (response) {
-            this.user = response;
+            console.log('Response from API:', response);
+        if (response) {
+                    
+          this.user = response;
+          this.avatar = response.avatar;
+          if(this.avatar == ''){
+            this.avatarBool = true
+            this.firstLetter = this.user.name[0]
+          }
+          console.log(this.user);
           } else {
             console.error('User not found');
           }

@@ -23,6 +23,7 @@ ion-content {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 ion-item {
@@ -48,7 +49,8 @@ ion-icon {
   color: #ffffff;
 }
 
-.login-button {
+.login-button,
+.register-button {
   --background: #4b0000;
   --color: #ffffff;
   --border-radius: 20px;
@@ -56,6 +58,6 @@ ion-icon {
   width: 100%;
 }
 
-.ion-list {
+ion-list {
   border-radius: 15px;
 }
