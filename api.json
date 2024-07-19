@@ -30,10 +30,10 @@
     },
     {
       "id": "aa03",
-      "name": "Caue",
+      "name": "CAUE 123",
       "email": "caue@caue.com",
-      "password": "123456",
-      "avatar": "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairDreads&accessoriesType=Prescription01&hairColor=Black&facialHairType=Blank&clotheType=ShirtScoopNeck&clotheColor=Blue03&eyeType=Close&eyebrowType=RaisedExcited&mouthType=Serious&skinColor=DarkBrown"
+      "avatar": "",
+      "password": "asdasd"
     },
     {
       "id": "78e3",
@@ -62,6 +62,13 @@
       "avatar": "",
       "email": "atoa@atoa.com",
       "password": "asdasd"
+    },
+    {
+      "id": "8c84",
+      "name": "Luis",
+      "avatar": "https://a.espncdn.com/i/headshots/nba/players/full/1966.png",
+      "email": "luis@luis.com",
+      "password": "123456"
     }
   ],
   "usersListPlayLater": [
@@ -96,22 +103,26 @@
       ]
     },
     {
-      "id": "b2b3",
-      "userId": "\"aa03\"",
-      "games": [
-        {
-          "gameId": "582",
-          "createDate": "2024-07-19T10:45:28.231Z"
-        }
-      ]
-    },
-    {
       "id": "b6cc",
       "userId": "\"ab04\"",
       "games": [
         {
           "gameId": "516",
           "createDate": "2024-07-19T10:49:13.083Z"
+        }
+      ]
+    },
+    {
+      "id": "7390",
+      "userId": "\"eefc\"",
+      "games": [
+        {
+          "gameId": "582",
+          "createDate": "2024-07-19T16:58:46.332Z"
+        },
+        {
+          "gameId": "523",
+          "createDate": "2024-07-19T17:07:37.499Z"
         }
       ]
     }
@@ -156,19 +167,19 @@
           "createDate": "2024-07-19T10:49:53.973Z"
         }
       ]
+    },
+    {
+      "id": "7d54",
+      "userId": "\"eefc\"",
+      "games": [
+        {
+          "gameId": "516",
+          "createDate": "2024-07-19T16:58:57.077Z"
+        }
+      ]
     }
   ],
   "usersListPlayed": [
-    {
-      "id": "9999",
-      "userId": "\"aa03\"",
-      "games": [
-        {
-          "gameId": "582",
-          "createDate": "2024-07-19T10:45:31.570Z"
-        }
-      ]
-    },
     {
       "id": "d469",
       "userId": "\"ab04\"",
@@ -178,19 +189,39 @@
           "createDate": "2024-07-19T10:49:13.922Z"
         }
       ]
-    }
-  ],
-  "usersListCompleted": [
+    },
     {
-      "id": "b9a3",
-      "userId": "\"aa03\"",
+      "id": "70b5",
+      "userId": "\"eefc\"",
       "games": [
         {
           "gameId": "582",
-          "createDate": "2024-07-19T10:45:33.644Z"
+          "createDate": "2024-07-19T16:58:30.542Z"
+        },
+        {
+          "gameId": "582",
+          "createDate": "2024-07-19T16:58:49.133Z"
+        },
+        {
+          "gameId": "516",
+          "createDate": "2024-07-19T16:58:56.437Z"
+        },
+        {
+          "gameId": "516",
+          "createDate": "2024-07-19T16:58:58.526Z"
+        },
+        {
+          "gameId": "523",
+          "createDate": "2024-07-19T17:07:33.674Z"
+        },
+        {
+          "gameId": "523",
+          "createDate": "2024-07-19T17:07:38.784Z"
         }
       ]
-    },
+    }
+  ],
+  "usersListCompleted": [
     {
       "id": "e476",
       "userId": "\"ab04\"",
@@ -198,6 +229,42 @@
         {
           "gameId": "516",
           "createDate": "2024-07-19T10:49:15.472Z"
+        }
+      ]
+    },
+    {
+      "id": "ee42",
+      "userId": "\"aa03\"",
+      "games": [
+        {
+          "gameId": "582",
+          "createDate": "2024-07-19T17:14:06.707Z"
+        }
+      ]
+    },
+    {
+      "id": "f35d",
+      "userId": "\"eefc\"",
+      "games": [
+        {
+          "gameId": "582",
+          "createDate": "2024-07-19T16:58:32.789Z"
+        },
+        {
+          "gameId": "582",
+          "createDate": "2024-07-19T16:58:48.448Z"
+        },
+        {
+          "gameId": "516",
+          "createDate": "2024-07-19T16:58:59.856Z"
+        },
+        {
+          "gameId": "523",
+          "createDate": "2024-07-19T17:07:34.996Z"
+        },
+        {
+          "gameId": "523",
+          "createDate": "2024-07-19T17:07:39.573Z"
         }
       ]
     }

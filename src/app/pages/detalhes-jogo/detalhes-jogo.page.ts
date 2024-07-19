@@ -11,14 +11,15 @@ import { UsersListPlayLaterService } from 'src/app/services/users-list-play-late
 import { UsersListCurrentyPlayingService } from 'src/app/services/users-list-currenty-playing.service';
 import { UsersListPlayedService } from 'src/app/services/users-list-played.service';
 import { UsersListCompletedService } from 'src/app/services/users-list-completed.service';
+import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-detalhes-jogo',
   templateUrl: './detalhes-jogo.page.html',
   styleUrls: ['./detalhes-jogo.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonButton, IonList, IonListHeader, IonLabel, IonText, IonItem, IonImg, IonGrid, IonRow, IonCol,HttpClientModule],
-  providers: [GameListService,UsersListPlayLaterService, UsersListCurrentyPlayingService, UsersListPlayedService, UsersListCompletedService],
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonButton, IonList, IonListHeader, IonLabel, IonText, IonItem, IonImg, IonGrid, IonRow, IonCol, HttpClientModule, NavbarComponent],
+  providers: [GameListService,UsersListPlayLaterService, UsersListCurrentyPlayingService, UsersListPlayedService, UsersListCompletedService, NavbarComponent],
 })
 export class DetalhesJogoPage implements OnInit {
 

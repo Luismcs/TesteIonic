@@ -30,6 +30,7 @@ import { UsersListPlayLaterService } from 'src/app/services/users-list-play-late
 import { GameArray } from 'src/app/models/game-play-later';
 import { GameListService } from 'src/app/services/game-list.service';
 import { Game } from 'src/app/models/game';
+import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-play-later',
@@ -62,6 +63,7 @@ import { Game } from 'src/app/models/game';
     IonIcon,
     IonInfiniteScroll,
     IonInfiniteScrollContent,
+    NavbarComponent
   ],
   providers: [UsersListPlayLaterService, GameListService],
 })

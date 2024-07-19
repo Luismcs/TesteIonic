@@ -6,25 +6,43 @@
 
 <ion-content>
   <div class="form-login-wrapper">
-    <form class="form-login-container" [formGroup]="myForm" (submit)="onSubmit()">
+    <form
+      class="form-login-container"
+      [formGroup]="myForm"
+      (submit)="onSubmit()"
+    >
       <ion-list>
         <ion-item>
           <ion-icon name="storefront-outline" slot="start"></ion-icon>
           <ion-label position="floating">Email</ion-label>
-          <ion-input type="email" formControlName="email" name="email" required></ion-input>
+          <ion-input
+            type="email"
+            formControlName="email"
+            name="email"
+            required
+          ></ion-input>
         </ion-item>
         <ion-item>
           <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
           <ion-label position="floating">Password</ion-label>
-          <ion-input type="password" formControlName="password" name="password" required></ion-input>
+          <ion-input
+            type="password"
+            formControlName="password"
+            name="password"
+            required
+          ></ion-input>
         </ion-item>
       </ion-list>
-      <ion-button expand="full" type="submit" class="login-button">
-        Login
-      </ion-button>
+      <ion-button expand="full" type="submit" class="login-button"
+        >Login</ion-button
+      >
+      <ion-button
+        expand="full"
+        type="button"
+        class="register-button"
+        [routerLink]="'/register'"
+        >Register</ion-button
+      >
     </form>
-    <ion-button expand="full" type="button" [routerLink]="'/register'">
-      Register
-    </ion-button>
   </div>
 </ion-content>

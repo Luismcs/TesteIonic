@@ -77,10 +77,15 @@ ion-infinite-scroll-content {
 }
 
 .avatar-null{
+  display: flex;
   justify-content: center;
-    display: flex;
-    font-size: 35px;
-    margin-top: -4px;
-    text-decoration: none;
+  font-size: 35px;
   background-color: aqua;
+}
+
+.a-avatar-null{
+  text-decoration: none;
+  color: black;
+  margin-top: -3px;
+
 }
