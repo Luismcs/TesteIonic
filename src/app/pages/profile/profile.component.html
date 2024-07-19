@@ -1,19 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Perfil</ion-title>
+    <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card *ngIf="user">
-    <ion-img [src]="user.profilePictureUrl"></ion-img>
+<ion-content *ngIf="user">
+  <ion-card>
     <ion-card-header>
       <ion-card-title>{{ user.name }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
+      <ion-avatar>
+        <img
+          [src]="user.avatar || 'assets/default-avatar.png'"
+          alt="{{ user.name }}"
+        />
+      </ion-avatar>
       <p>Email: {{ user.email }}</p>
-      <p>Idade: {{ user.age }}</p>
     </ion-card-content>
   </ion-card>
-  <p *ngIf="!user">Carregando dados do usuário...</p>
 </ion-content>
