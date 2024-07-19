@@ -7,8 +7,17 @@
 <ion-content *ngIf="user">
   <ion-card class="profile-card">
     <ion-card-header>
-      <ion-avatar>
-        <img [src]="user.avatar || 'assets/default-avatar.png'" alt="{{ user.name }}" />
+      <ion-avatar *ngIf="!avatarBool">
+        <a [routerLink]="'/profile'">
+          <img [src]="avatar" />
+        </a>
+      </ion-avatar>
+
+
+      <ion-avatar *ngIf="avatarBool" class="avatar-null">
+        <a [routerLink]="'/profile'" class="a-avatar-null">
+          {{ firstLetter }}
+        </a>
       </ion-avatar>
       <ion-card-title>{{ user.name }}</ion-card-title>
       <p class="email">Email: {{ user.email }}</p>
