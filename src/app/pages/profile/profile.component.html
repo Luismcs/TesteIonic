@@ -5,23 +5,26 @@
 </ion-header>
 
 <ion-content *ngIf="user">
-  <ion-card>
+  <ion-card class="profile-card">
     <ion-card-header>
-      <ion-card-title>{{ user.name }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
       <ion-avatar>
-        <img [src]="user.avatar || 'assets/default-avatar.png'" alt="{{ user.name }}" />
+        <img
+          [src]="user.avatar || 'assets/default-avatar.png'"
+          alt="{{ user.name }}"
+        />
       </ion-avatar>
-      <p>Email: {{ user.email }}</p>
-    </ion-card-content>
+      <ion-card-title>{{ user.name }}</ion-card-title>
+      <p class="email">Email: {{ user.email }}</p>
+    </ion-card-header>
   </ion-card>
 
-  <ion-button [routerLink]="'/play-later'">Play Later</ion-button>
-  <ion-button [routerLink]="'/currently-playing'">Currently Playing</ion-button>
-  <ion-button [routerLink]="'/played'">Played</ion-button>
-  <ion-button [routerLink]="'/completed'">Completed</ion-button>
-
-
-  <ion-button (click)="logout()">LOGOUT</ion-button>
+  <div class="buttons-container">
+    <ion-button [routerLink]="'/play-later'">Play Later</ion-button>
+    <ion-button [routerLink]="'/currently-playing'"
+      >Currently Playing</ion-button
+    >
+    <ion-button [routerLink]="'/played'">Played</ion-button>
+    <ion-button [routerLink]="'/completed'">Completed</ion-button>
+    <ion-button class="logout" (click)="logout()">LOGOUT</ion-button>
+  </div>
 </ion-content>
