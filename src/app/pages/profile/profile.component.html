@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Profile</ion-title>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +13,6 @@
         </a>
       </ion-avatar>
 
-
       <ion-avatar *ngIf="avatarBool" class="avatar-null">
         <a [routerLink]="'/profile'" class="a-avatar-null">
           {{ firstLetter }}
@@ -25,11 +24,11 @@
   </ion-card>
 
   <div class="buttons-container">
-    <ion-button [routerLink]="'/play-later'">Play Later</ion-button>
-    <ion-button [routerLink]="'/currently-playing'">Currently Playing</ion-button>
-    <ion-button [routerLink]="'/played'">Played</ion-button>
-    <ion-button [routerLink]="'/completed'">Completed</ion-button>
-    <ion-button [routerLink]="'/edit-profile'">Edit Profile</ion-button>
+    <ion-button [routerLink]="'/play-later'">Jogar mais tarde</ion-button>
+    <ion-button [routerLink]="'/currently-playing'">A jogar</ion-button>
+    <ion-button [routerLink]="'/played'">Jogado</ion-button>
+    <ion-button [routerLink]="'/completed'">Completado</ion-button>
+    <ion-button [routerLink]="'/edit-profile'">Editar Perfil</ion-button>
     <ion-button class="logout" (click)="logout()">LOGOUT</ion-button>
   </div>
 </ion-content>
