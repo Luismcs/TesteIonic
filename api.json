@@ -69,6 +69,13 @@
       "avatar": "https://a.espncdn.com/i/headshots/nba/players/full/1966.png",
       "email": "luis@luis.com",
       "password": "123456"
+    },
+    {
+      "id": "5e58",
+      "name": "ricardo",
+      "avatar": "",
+      "email": "ricardo@ricardo.com",
+      "password": "123456"
     }
   ],
   "usersListPlayLater": [
@@ -123,6 +130,16 @@
         {
           "gameId": "523",
           "createDate": "2024-07-19T17:07:37.499Z"
+        }
+      ]
+    },
+    {
+      "id": "cde1",
+      "userId": "\"5e58\"",
+      "games": [
+        {
+          "gameId": "380",
+          "createDate": "2024-07-19T20:36:42.632Z"
         }
       ]
     }
@@ -219,6 +236,16 @@
           "createDate": "2024-07-19T17:07:38.784Z"
         }
       ]
+    },
+    {
+      "id": "a360",
+      "userId": "\"5e58\"",
+      "games": [
+        {
+          "gameId": "380",
+          "createDate": "2024-07-19T20:37:28.042Z"
+        }
+      ]
     }
   ],
   "usersListCompleted": [
@@ -265,6 +292,16 @@
         {
           "gameId": "523",
           "createDate": "2024-07-19T17:07:39.573Z"
+        }
+      ]
+    },
+    {
+      "id": "60de",
+      "userId": "\"5e58\"",
+      "games": [
+        {
+          "gameId": "380",
+          "createDate": "2024-07-19T20:37:29.125Z"
         }
       ]
     }
