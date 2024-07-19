@@ -38,4 +38,12 @@ export const routes: Routes = [
         (m) => m.PlayLaterComponent
       ),
   },
+  {
+    path: 'currently-playing',
+    loadComponent: () =>
+      import('./pages/currently-playing/currently-playing.component').then(
+        (m) => m.CurrentlyPlayingComponent
+      ),
+    canActivate: [loginGuard],
+  },
 ];
