@@ -22,6 +22,8 @@ export class NavbarComponent  implements OnInit {
   user: any;
   avatar?: string;
   @Input() title: string = '';
+  @Input() avatarBool?: boolean;
+  @Input() firstLetter?: string;
   showLojaButton?: boolean;
 
   private userService = inject(UserService)
@@ -30,6 +32,8 @@ export class NavbarComponent  implements OnInit {
   constructor(private router: Router, public loginService: LoginService) { }
 
   ngOnInit() {
+
+    console.log(this.avatarBool);
 
     this.router.events.subscribe(event => {
       if (this.router.url === '/loja') {

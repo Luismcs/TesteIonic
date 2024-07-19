@@ -1,24 +1,4 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>loja</ion-title>
-    <ion-item slot="end">
-
-
-      <ion-avatar *ngIf="!avatarBool">
-        <a [routerLink]="'/profile'">
-          <img [src]="avatar" />
-        </a>
-      </ion-avatar>
-
-
-      <ion-avatar *ngIf="avatarBool" class="avatar-null">
-        <a [routerLink]="'/profile'" class="a-avatar-null">
-          {{ firstLetter }}
-        </a>
-      </ion-avatar>
-    </ion-item>
-  </ion-toolbar>
-</ion-header>
+<app-navbar [avatarBool]="avatarBool" [firstLetter]="firstLetter"></app-navbar>
 
 <ion-content [fullscreen]="true">
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">

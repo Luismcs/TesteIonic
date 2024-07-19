@@ -1,16 +1,23 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>{{title}}</ion-title>
+    <ion-title>{{ title }}</ion-title>
     <ion-item [routerLink]="'/loja'" *ngIf="showLojaButton" slot="start">
       <ion-icon name="list-circle-outline"  slot="start">
         <a>Loja</a>
       </ion-icon>
     </ion-item>
-    <ion-title  *ngIf="!showLojaButton">BIROBIROLAVERS</ion-title>
-    <ion-item slot="end">
-      <ion-avatar [routerLink]="'/profile'">
-        <a>
+    <ion-title *ngIf="!showLojaButton">BIROBIROLAVERS</ion-title>
+
+    <ion-item *ngIf="!showLojaButton" slot="end">
+      <ion-avatar *ngIf="!avatarBool && !showLojaButton">
+        <a [routerLink]="'/profile'">
           <img [src]="avatar" />
+        </a>
+      </ion-avatar>
+
+      <ion-avatar *ngIf="avatarBool && !showLojaButton" class="avatar-null">
+        <a [routerLink]="'/profile'" class="a-avatar-null">
+          {{ firstLetter }}
         </a>
       </ion-avatar>
     </ion-item>
