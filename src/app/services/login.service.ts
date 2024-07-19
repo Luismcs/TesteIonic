@@ -25,7 +25,7 @@ export class LoginService {
   }
 
   logout() {
-    localStorage.removeItem('login');
+    localStorage.clear();
   }
 
   isLoggedIn(): boolean {

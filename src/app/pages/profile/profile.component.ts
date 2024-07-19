@@ -4,17 +4,22 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../../services/user.service';
+import { RouterLink } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
+import { refresh } from 'ionicons/icons';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonicModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, IonicModule, HttpClientModule, RouterLink],
 })
 export class ProfileComponent implements OnInit {
   user: any;
   private userService = inject(UserService);
+
+  constructor(public loginService: LoginService) { }
 
   ngOnInit() {
     let userId = localStorage.getItem('user_id');
@@ -39,5 +44,10 @@ export class ProfileComponent implements OnInit {
     } else {
       console.error('No user_id in localStorage');
     }
+  }
+
+  logout(): void {
+    this.loginService.logout();
+    window.location.reload();  
   }
 }

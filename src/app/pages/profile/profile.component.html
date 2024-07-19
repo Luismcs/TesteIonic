@@ -11,12 +11,17 @@
     </ion-card-header>
     <ion-card-content>
       <ion-avatar>
-        <img
-          [src]="user.avatar || 'assets/default-avatar.png'"
-          alt="{{ user.name }}"
-        />
+        <img [src]="user.avatar || 'assets/default-avatar.png'" alt="{{ user.name }}" />
       </ion-avatar>
       <p>Email: {{ user.email }}</p>
     </ion-card-content>
   </ion-card>
+
+  <ion-button [routerLink]="'/play-later'">Play Later</ion-button>
+  <ion-button [routerLink]="'/currently-playing'">Currently Playing</ion-button>
+  <ion-button [routerLink]="'/played'">Played</ion-button>
+  <ion-button [routerLink]="'/completed'">Completed</ion-button>
+
+
+  <ion-button (click)="logout()">LOGOUT</ion-button>
 </ion-content>
