@@ -11,6 +11,12 @@ ion-toolbar {
   --color: #ffffff;
 }
 
+ion-card {
+  --background: #1a1a1a;
+  --color: #ffffff;
+  border-radius: 15px;
+}
+
 ion-card-header {
   display: flex;
   flex-direction: column;

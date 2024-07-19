@@ -48,6 +48,27 @@
       "email": "hugo@hugo.com",
       "password": "123456",
       "avatar": "https://avataaars.io/?avatarStyle=Transparent&topType=LongHairDreads&accessoriesType=Prescription01&hairColor=Black&facialHairType=Blank&clotheType=ShirtScoopNeck&clotheColor=Blue03&eyeType=Close&eyebrowType=RaisedExcited&mouthType=Serious&skinColor=DarkBrown"
+    },
+    {
+      "id": "97e6",
+      "name": "kakaka",
+      "avatar": "",
+      "email": "kaka@kaka.com",
+      "password": "asdasd"
+    },
+    {
+      "id": "eefc",
+      "name": "atoa",
+      "avatar": "",
+      "email": "atoa@atoa.com",
+      "password": "asdasd"
+    },
+    {
+      "id": "8c84",
+      "name": "Luis",
+      "avatar": "https://a.espncdn.com/i/headshots/nba/players/full/1966.png",
+      "email": "luis@luis.com",
+      "password": "123456"
     }
   ],
   "usersListPlayLater": [

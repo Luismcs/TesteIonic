@@ -3,7 +3,7 @@ ion-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Garantir que ocupa 100% da altura da viewport */
+  height: 100vh;
 }
 
 .form-login-wrapper {
@@ -23,7 +23,6 @@ ion-content {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 ion-item {
@@ -41,7 +40,7 @@ ion-input {
   --placeholder-color: #cccccc;
   --color: #ffffff;
   width: 100%;
-  border-bottom: 1px solid #ffffff; /* Linha branca na área de texto */
+  border-bottom: 1px solid #ffffff;
   padding-bottom: 5px;
 }
 
@@ -49,8 +48,7 @@ ion-icon {
   color: #ffffff;
 }
 
-.login-button,
-.register-button {
+.login-button {
   --background: #4b0000;
   --color: #ffffff;
   --border-radius: 20px;
