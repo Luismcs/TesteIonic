@@ -29,8 +29,6 @@
 - **Intuitive Interface**: Dynamic and intuitive layout.
 - **Visual Identity**: Suggested a unique visual identity for the app.
 
-### User Feedback
-- **Toast Messages**: Using Ionic's Native Toast API for success or error feedback on each action.
 
 ## Development Environment Setup
 
