@@ -41,7 +41,6 @@
 ### Installation
 1. Clone this repository:
 git clone https://github.com/Luismcs/testeIonic
-cd GamePicker
 
 2. Install modules:
 npm install
